@@ -1,0 +1,20 @@
+\section{Homotopy}
+\begin{definition}\label{2.1}
+    Let $X,Y$ be topological spaces and $f,g:X\to Y$ be continuous maps. Then $f$ is called homotopic to $g$ if there exists a $F:X\times I\to Y$ continuous s.t. $F(x,0)=f(x)$ and $F(x,1)=g(x)$ for all $x\in X$. We write $f\simeq_F g$ and $F$ is called a homotopy between $f$ and $g$. If $f\simeq c$ where $c$ is a constant map, then $f$ is called null-homotopic.
+\end{definition}
+\begin{definition}\label{2.2}
+    Let $X$ be a topological space. A continuous map $f:I\to X$ is called a path in $X$.\\
+    Two paths $f,g:I\to X$ are called \textbf{path homotopic} if they have the same start and end points, i.e. $f(0)=g(0)$ and $f(1)=g(1)$, and there exists a continuous map $F:I\times I\to X$ s.t. $F(x,0)=f(x)$, $F(x,1)=g(x)$ for all $x\in I$, and $F(0,t)=f(0)=g(0)$, $F(1,t)=f(1)=g(1)$ for all $t\in I$. We write $f\simeq_F g$.
+\end{definition}
+\begin{remark}\label{2.3}
+    This is an equivalence relation:
+    \begin{enumerate}
+        \item $f\simeq_F f$ with $F(x,t)=f(x)$ for all $x,t\in I$.
+        \item $f\simeq_F g \implies g\simeq_G f$ with $G(x,t):=F(x,1-t)$.
+        \item $f\simeq_F g$, $g\simeq_G h \implies f\simeq_H h$ with $\begin{cases}
+            H(x,t)=F(x,2t) & 0\leq t\leq \frac{1}{2}\\
+            H(x,t)=G(x,2t-1) & \frac{1}{2}\leq t\leq 1
+        \end{cases}$
+    \end{enumerate}
+    If $f$ is a path then we call $[f]$ the path homotopy equivalence class of $f$. 
+\end{remark}  

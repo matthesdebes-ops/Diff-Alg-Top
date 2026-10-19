@@ -452,9 +452,12 @@ INPUT D:\Latex\fonts\enc\dvips\mnsymbol\MnSymbolF.enc
 INPUT D:\Latex\fonts\enc\dvips\mnsymbol\MnSymbolE.enc
 INPUT D:\Latex\fonts\enc\dvips\mnsymbol\MnSymbolS.enc
 INPUT D:\Latex\fonts\enc\dvips\mnsymbol\MnSymbolA.enc
-INPUT .\Chapter2\Homotopy_and_Fundamental_Groups
+INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
+INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
 OUTPUT Chapter2\Homotopy_and_Fundamental_Groups.aux
-INPUT .\Chapter2\Homotopy_and_Fundamental_Groups
+INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
+INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
+INPUT Chapter2\Homotopy_and_Fundamental_Groups.tex
 OUTPUT Chapter3.aux
 OUTPUT Chapter4.aux
 OUTPUT Chapter5.aux
