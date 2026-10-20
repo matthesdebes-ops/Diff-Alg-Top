@@ -18,3 +18,20 @@
     \end{enumerate}
     If $f$ is a path then we call $[f]$ the path homotopy equivalence class of $f$. 
 \end{remark}  
+\begin{example}
+    \begin{itemize}
+        \item Any two continuous maps $f,g:X \to \mathbb{R}^2$ are homotopic with $F(x,t)=(1-t)f(x)+tg(x)$.
+        \item Let $X=\mathbb{R}^2\setminus \{(0,0)\}$ and let $f,g:I\to X$ be defined by $f(t)=e^{\pi i t}$ and $g(t)=e^{-\pi i t}$. Then $f$ and $g$ are not path homotopic in $X$. Proving this is not trivial. First, we state an equivalent problem which is slightly easier to prove. Instead of two paths, we try to show that the unit circle as a path $h(t)=e^{2\pi i t}$ is not path homotopic to a constant path (w.l.o.g. $(1,0)$).
+
+Assume there is a path homotopy $F:I\times I\to X$ such that $F(x,0)=h(x)$ and $F(x,1)=(1,0)$. W.l.o.g. we may assume $F:I\times I\to \mathbb{S}^1$: if $F'$ is a path homotopy, then $F:=\frac{x}{|x|}\circ F'$ is one too, because $\frac{x}{|x|}$ is continuous on $X$.
+
+From here on we use the covering map (which we will define later) $p:\mathbb{R}\to \mathbb{S}^1$, $p(t)=e^{2\pi i t}$. By a lemma which we will prove later, $F$ has a lift $\tilde F$, i.e. a continuous map $\tilde F:I\times I\to\mathbb{R}$ with $p\circ\tilde F=F$. We can normalize $\tilde F$ such that $\tilde F(0,0)=0$.
+
+Because $F(0,t)=F(1,t)=F(x,1)=(1,0)$ are all mapped to $1$ (we use $\mathbb{R}^2 \cong \mathbb{C}$ for convenience) and $p^{-1}(1)=\mathbb{Z}$, the maps $\tilde F(0,t)$, $\tilde F(1,t)$ and $\tilde F(x,1)$ are continuous with values in $\mathbb{Z}$, and $\mathbb{Z}$ is discrete. Hence each of them is constant. Since consecutive edges share a corner, the three constants agree, and we get
+$$\tilde F(0,0)=\tilde F(0,1)=\tilde F(1,1)=\tilde F(1,0)=0.$$
+
+We have now determined every edge except the bottom one. On the bottom edge, both $x\mapsto \tilde F(x,0)$ and $x\mapsto x$ are continuous lifts of $h$. We see that
+$$p\big(\tilde F(x,0)-x\big)=\frac{h(x)}{h(x)}=1,$$
+so the difference lies in $\mathbb{Z}$. Since the difference is continuous on the connected set $I$, it is constant. At $x=0$ the difference is $0$, hence $\tilde F(x,0)=x$. But this is a contradiction, because $\tilde F(1,0)=0\neq 1$. 
+    \end{itemize}
+\end{example}
