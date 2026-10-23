@@ -1,7 +1,30 @@
 %% math environments
+\usepackage{amsthm}
+
+% --- definition-like style with line break after head ---
+\newtheoremstyle{defbreak}
+  {\topsep}
+  {\topsep}
+  {\normalfont}
+  {}
+  {\bfseries}
+  {.}
+  {\newline}% keep this
+  {}
+
+% --- plain-like style with line break after head ---
+\newtheoremstyle{plainbreak}
+  {\topsep}
+  {\topsep}
+  {\itshape}% body font (italic)
+  {}
+  {\bfseries}
+  {.}
+  {\newline}
+  {}
 
 % definition style
-\theoremstyle{definition}
+\theoremstyle{defbreak}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{remark}[definition]{Remark}
 \newtheorem{example}[definition]{Example}
@@ -10,14 +33,38 @@
 \newtheorem*{example*}{Example}
 
 % plain style
-\theoremstyle{plain}
+\theoremstyle{plainbreak}
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{corollary}[definition]{Corollary}
 \newtheorem{conjecture}[definition]{Conjecture}
 \newtheorem{lemma}[definition]{Lemma}
 \newtheorem{proposition}[definition]{Proposition}
 
+% --- proof with line break after head ---
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\itshape #1.]\mbox{}\\*
+  \ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
 
+\usepackage{enumitem}
+\setlist[enumerate,1]{topsep=0pt}
+\setlist[itemize,1]{topsep=0pt}
+
+\AtBeginEnvironment{theorem}{\leavevmode}
+\AtBeginEnvironment{definition}{\leavevmode}
+\AtBeginEnvironment{example}{\leavevmode}
+\AtBeginEnvironment{remark}{\leavevmode}
+\AtBeginEnvironment{corollary}{\leavevmode}
+\AtBeginEnvironment{conjecture}{\leavevmode}
+\AtBeginEnvironment{lemma}{\leavevmode}
+\AtBeginEnvironment{proposition}{\leavevmode}
 %% enumeration items
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \renewcommand{\labelenumii}{(\alph{enumii})}

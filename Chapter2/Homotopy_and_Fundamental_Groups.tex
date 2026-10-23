@@ -1,9 +1,9 @@
 \section{Homotopy}
 \begin{definition}\label{2.1}
-    Let $X,Y$ be topological spaces and $f,g:X\to Y$ be continuous maps. Then $f$ is called homotopic to $g$ if there exists a $F:X\times I\to Y$ continuous s.t. $F(x,0)=f(x)$ and $F(x,1)=g(x)$ for all $x\in X$. We write $f\simeq_F g$ and $F$ is called a homotopy between $f$ and $g$. If $f\simeq c$ where $c$ is a constant map, then $f$ is called null-homotopic.
+    Let $X,Y$ be topological spaces (as always in this chapter) and $f,g:X\to Y$ be continuous maps. Then $f$ is called homotopic to $g$ if there exists a $F:X\times I\to Y$ continuous s.t. $F(x,0)=f(x)$ and $F(x,1)=g(x)$ for all $x\in X$. We write $f\simeq_F g$ and $F$ is called a homotopy between $f$ and $g$. If $f\simeq c$ where $c$ is a constant map, then $f$ is called null-homotopic.
 \end{definition}
 \begin{definition}\label{2.2}
-    Let $X$ be a topological space. A continuous map $f:I\to X$ is called a path in $X$.\\
+A continuous map $f:I\to X$ is called a path in $X$.\\
     Two paths $f,g:I\to X$ are called \textbf{path homotopic} if they have the same start and end points, i.e. $f(0)=g(0)$ and $f(1)=g(1)$, and there exists a continuous map $F:I\times I\to X$ s.t. $F(x,0)=f(x)$, $F(x,1)=g(x)$ for all $x\in I$, and $F(0,t)=f(0)=g(0)$, $F(1,t)=f(1)=g(1)$ for all $t\in I$. We write $f\simeq_F g$.
 \end{definition}
 \begin{remark}\label{2.3}
@@ -18,7 +18,8 @@
     \end{enumerate}
     If $f$ is a path then we call $[f]$ the path homotopy equivalence class of $f$. 
 \end{remark}  
-\begin{example}
+\begin{example}\label{2.4}
+    \leavevmode
     \begin{itemize}
         \item Any two continuous maps $f,g:X \to \mathbb{R}^2$ are homotopic with $F(x,t)=(1-t)f(x)+tg(x)$.
         \item Let $X=\mathbb{R}^2\setminus \{(0,0)\}$ and let $f,g:I\to X$ be defined by $f(t)=e^{\pi i t}$ and $g(t)=e^{-\pi i t}$. Then $f$ and $g$ are not path homotopic in $X$. Proving this is not trivial. First, we state an equivalent problem which is slightly easier to prove. Instead of two paths, we try to show that the unit circle as a path $h(t)=e^{2\pi i t}$ is not path homotopic to a constant path (w.l.o.g. $(1,0)$).
@@ -32,6 +33,71 @@ $$\tilde F(0,0)=\tilde F(0,1)=\tilde F(1,1)=\tilde F(1,0)=0.$$
 
 We have now determined every edge except the bottom one. On the bottom edge, both $x\mapsto \tilde F(x,0)$ and $x\mapsto x$ are continuous lifts of $h$. We see that
 $$p\big(\tilde F(x,0)-x\big)=\frac{h(x)}{h(x)}=1,$$
-so the difference lies in $\mathbb{Z}$. Since the difference is continuous on the connected set $I$, it is constant. At $x=0$ the difference is $0$, hence $\tilde F(x,0)=x$. But this is a contradiction, because $\tilde F(1,0)=0\neq 1$. 
+so the difference lies in $\mathbb{Z}$. Since the difference is continuous on the connected set $I$, it is constant. At $x=0$ the difference is $0$, hence $\tilde F(x,0)=x$. But this is a contradiction, because $\tilde F(1,0)=0\neq 1$.
     \end{itemize}
 \end{example}
+\begin{definition}\label{2.5}
+    Let $f$ be a path in $X$ from $x_0$ to $x_1$ and $g$ be a path in $X$ from $x_1$ to $x_2$. Then the concatenation of $f$ and $g$ is the path $f*g:I\to X$ defined by \[f*g(x)=\begin{cases}
+        f(2x) & 0\leq x\leq \frac{1}{2}\\
+        g(2x-1) & \frac{1}{2}\leq x\leq 1 
+    \end{cases}\]
+    This induces a product on the path homotopy equivalence classes: $[f]*[g]:=[f*g]$.
+\end{definition}
+\begin{theorem}\label{2.6} 
+    \leavevmode
+    \begin{enumerate}
+        \item $[f]*([g]*[h])=([f]*[g])*[h]$
+        \item Let $x\in X$ and $e_x$ be the constant path at $x$. Let $f$ be a path from $x$ to $y$. Then $[e_x]*[f]=[f]$ and $[f]*[e_y]=[f]$.
+        \item Let $f$ be a path from $x_0$ to $y$. Then there exists an inverse path $\bar f$ from $y$ to $x_0$ defined by $\bar f(x)=f(1-x)$. Then $[f]*[\bar f]=[e_{x_0}]$ and $[\bar f]*[f]=[e_y]$.   
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item $[f]*([g]*[h])=[f*(g*h)]=[(f*g)*h]=([f]*[g])*[h]$ where the second equality follows from a reparametrization of the homotopy.
+        \item Let $e_0$ be the constant path at $I$ and $id=i$ on $I$. We see that $i\simeq e_0* i$. Then $f=f\circ i\simeq f\circ (e_0*i)=(f\circ e_0)*(f\circ i)=e_{x_0}*f$. A similar argument shows $[f]*[e_y]=[f]$.
+        \item Let $f$ be a path from $x_0$ to $y$. Then $\bar f(x)=f(1-x)$ is a path from $y$ to $x_0$. It follows that $(f*\bar f(x))=\begin{cases}
+            f(2x) & 0\leq x\leq \frac{1}{2}\\
+            f(2-2x) & \frac{1}{2}\leq x\leq 1
+            \end{cases}=f(t|1-2|x-\frac{1}{2}||)$. Let $F:I\times I\to X$ be defined by $F(x,t)=f(t|1-2|x-\frac{1}{2}||)$. Then $F(x,0)=f(0)$ and $F(x,1)=f(|1-2|x-\frac{1}{2}||)$. It follows that $(f*\bar f)\simeq_F e_{x_0}$. A similar argument shows $[\bar f]*[f]=[e_y]$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}\label{2.7}
+    A \textbf{loop} based at $x_0\in X$ is a path $f:I\to X$ with $f(0)=f(1)=x_0$.\\
+    $\pi_1(X,x_0)$ is the so called \textbf{fundamental group of $X$ relative to $x_0$}($=\{[f]:f\text{ is a loop based at }x_0\}$). This is a group. 
+\end{definition}
+\begin{example}
+    $\pi_1(\mathbb{R}^n,x_0)=0$ for all $x_0\in \mathbb{R}^n$. Also, $\pi_1(X,x_0)=0$ for all $x_0\in X$ if $X\subseteq \mathbb{R}^n$ is convex. 
+\end{example}
+
+Question: Does $\pi_1(X,x_0)$ depend on the choice of $x_0$?
+
+\begin{definition}\label{2.8}
+    Let $f$ be a loop based at $x_0$. We define $\alpha:[0,1]\to X$ as a path from $x_0$ to $x_1$. It is easy to see that $\bar\alpha*f*\alpha$ is a loop based at $x_1$. \\
+    We define a map $\hat \alpha:\pi_1(X,x_0)\to \pi_1(X,x_1)$ by $\hat\alpha([f])=[\bar\alpha*f*\alpha]$. 
+\end{definition}
+\begin{theorem}\label{2.9}
+    $\hat\alpha$ is a group isomorphism.
+\end{theorem}
+\begin{proof}
+    Let $f,g$ be loops based at $x_0$. Then $\hat\alpha([f]*[g])=\hat\alpha([f*g])=[\bar\alpha*(f*g)*\alpha]=[\bar\alpha*f*e_{x_1}*g*\alpha]=[\bar\alpha*f*(\alpha*\bar\alpha)*g*\alpha]=[\bar\alpha*f*\alpha]*[\bar\alpha*g*\alpha]=\hat\alpha([f])*\hat\alpha([g])$.\\
+    If $\beta=\bar \alpha$, then $\hat\beta=\hat \alpha^{-1}$. Because $\hat\alpha$ is a homomorphism and it has an inverse, it is a group isomorphism.
+\end{proof}
+\begin{corollary}\label{2.10}
+    Let $X$ be path connected. Then $\pi_1(X,x_0)\cong \pi_1(X,x_1)$ for all $x_0,x_1\in X$.
+\end{corollary} 
+\begin{definition}\label{2.11}
+    $X$ is called simply connected if it is path connected and $\pi_1(X,x_0)=0$ for some (and hence all) $x_0\in X$.
+\end{definition}
+\begin{theorem}\label{2.12}
+    Let $h:(X,x_0)\to (Y,y_0)$ be a continuous map with $h(x_0)=y_0$. Then $h$ induces a homomorphism $h_*:\pi_1(X,x_0)\to \pi_1(Y,y_0)$ with $h_*([f])=[h\circ f]$ for all $[f]\in \pi_1(X,x_0)$.\\
+\end{theorem}
+\begin{proof}
+    $h_*$ is well defined: if $f\simeq g$ then $h\circ f\simeq h\circ g$. \\
+    $h_*$ is a homomorphism: let $f,g$ be loops based at $x_0$. Then $h_*([f]*[g])=h_*([f*g])=[h\circ(f*g)]=[h\circ f*h\circ g]=[h\circ f]*[h\circ g]=h_*([f])*h_*([g])$.
+\end{proof}
+\begin{theorem}\label{2.13}
+    If $h$ is a homeomorphism then $h_*$ is an isomorphism.
+\end{theorem}
+\begin{proof}
+    Let $k=h^{-1}$. Then $k_*\circ h_*=(k\circ h)_*=id_*=id$.
+\end{proof}

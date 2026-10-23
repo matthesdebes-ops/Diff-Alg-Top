@@ -297,6 +297,8 @@ INPUT D:\Latex\tex\generic\pgf\libraries\pgflibraryarrows.meta.code.tex
 INPUT .\style.tex
 INPUT .\style.tex
 INPUT style.tex
+INPUT D:\Latex\tex\latex\enumitem\enumitem.sty
+INPUT D:\Latex\tex\latex\enumitem\enumitem.sty
 OUTPUT main.idx
 INPUT .\main.aux
 INPUT .\main.aux
@@ -458,6 +460,7 @@ OUTPUT Chapter2\Homotopy_and_Fundamental_Groups.aux
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
 INPUT Chapter2\Homotopy_and_Fundamental_Groups.tex
+INPUT D:\Latex\fonts\tfm\jknappen\ec\ecti1200.tfm
 OUTPUT Chapter3.aux
 OUTPUT Chapter4.aux
 OUTPUT Chapter5.aux
@@ -498,6 +501,8 @@ INPUT .\Chapter9.aux
 INPUT Chapter9.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk
+INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk
 INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
 INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk
