@@ -309,9 +309,9 @@ INPUT Chapter1\Introduction.aux
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.aux
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.aux
 INPUT Chapter2\Homotopy_and_Fundamental_Groups.aux
-INPUT .\Chapter3.aux
-INPUT .\Chapter3.aux
-INPUT Chapter3.aux
+INPUT .\Chapter3\Covering_Spaces.aux
+INPUT .\Chapter3\Covering_Spaces.aux
+INPUT Chapter3\Covering_Spaces.aux
 INPUT .\Chapter4.aux
 INPUT .\Chapter4.aux
 INPUT Chapter4.aux
@@ -461,7 +461,9 @@ INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.tex
 INPUT Chapter2\Homotopy_and_Fundamental_Groups.tex
 INPUT D:\Latex\fonts\tfm\jknappen\ec\ecti1200.tfm
-OUTPUT Chapter3.aux
+INPUT .\Chapter3\Covering_Spaces
+OUTPUT Chapter3\Covering_Spaces.aux
+INPUT .\Chapter3\Covering_Spaces
 OUTPUT Chapter4.aux
 OUTPUT Chapter5.aux
 OUTPUT Chapter6.aux
@@ -478,9 +480,9 @@ INPUT Chapter1\Introduction.aux
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.aux
 INPUT .\Chapter2\Homotopy_and_Fundamental_Groups.aux
 INPUT Chapter2\Homotopy_and_Fundamental_Groups.aux
-INPUT .\Chapter3.aux
-INPUT .\Chapter3.aux
-INPUT Chapter3.aux
+INPUT .\Chapter3\Covering_Spaces.aux
+INPUT .\Chapter3\Covering_Spaces.aux
+INPUT Chapter3\Covering_Spaces.aux
 INPUT .\Chapter4.aux
 INPUT .\Chapter4.aux
 INPUT Chapter4.aux

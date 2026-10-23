@@ -1,0 +1,16 @@
+\section{Covering Spaces}
+\begin{definition}\label{3.1}
+    Let $p:E\to B$ be a continuous, surjective map and let $U\subseteq B$ be an open set. We say $U$ is \textbf{evenly covered by p} if $p^{-1}(U)$ is the disjoint union of open sets $V_\alpha$ in $E$ such that $p|_{V_\alpha}$ is a homeomorphism from $V_\alpha$ onto $U$ for all $\alpha$.\\
+    We say $\{V_\alpha\}_{\alpha\in A}$ is a partition of $p^{-1}$ into slices.
+\end{definition}
+\begin{definition}\label{3.2}
+    Let $p:E\to B$ be a continuous, surjective map. If every $b\in B$ has a neighbourhood $U$ that is evenly covered by $p$, then $p$ is called a \textbf{covering map}, $B$ is called the \textbf{base of the covering} and $E$ is the \textbf{covering Space of $B$}.\\
+    We call $p^{-1}(x)$ a fiber over $x$.
+\end{definition}
+\begin{remark}\label{3.3}
+    \leavevmode
+    \begin{itemize}
+        \item $\forall b\in B,p^{-1}(b)$ is discrete in $E$: each slice $V_\alpha$ is open in $E$ and intersects $p^{-1}(b)$ in a single point.
+        \item Covering maps are open: Let $V\subseteq E$ be open. Take $x\in p(V)$. Choose a neighbourhood $U$ of $x$ in $B$ which is evenly covered by $p$. Let $\{V_\alpha\}$ be the slices of $p^{-1}(U)$ and choose $y\in V$ such that $p(y)=x$ and $\beta$ such that $y\in V_\beta$. We know that $V\cap V_\beta$ is open in $E$, hence open in $V_\beta$. Now we know that $p|_{V_\beta}:V_\beta\to U$ is a homeomorphism, hence $p(V\cap V_\beta)$ is open in $U$, hence open in $B$ and it is still a neighbourhood of $x$ in $p(V)$.
+    \end{itemize}
+\end{remark}
