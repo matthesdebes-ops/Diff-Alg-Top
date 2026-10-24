@@ -14,3 +14,79 @@
         \item Covering maps are open: Let $V\subseteq E$ be open. Take $x\in p(V)$. Choose a neighbourhood $U$ of $x$ in $B$ which is evenly covered by $p$. Let $\{V_\alpha\}$ be the slices of $p^{-1}(U)$ and choose $y\in V$ such that $p(y)=x$ and $\beta$ such that $y\in V_\beta$. We know that $V\cap V_\beta$ is open in $E$, hence open in $V_\beta$. Now we know that $p|_{V_\beta}:V_\beta\to U$ is a homeomorphism, hence $p(V\cap V_\beta)$ is open in $U$, hence open in $B$ and it is still a neighbourhood of $x$ in $p(V)$.
     \end{itemize}
 \end{remark}
+\begin{example}\label{3.4}
+    \leavevmode
+    \begin{itemize}
+        \item Let $X$ be a topological space and $E=X\times \{1,...,n\}$. Then $p:E\to X$ given by $p(x,i)=x$ is a covering map.
+        \item $p:\mathbb{R}\to \mathbb{S}^1$ given by $p(x)=(\cos(2\pi x),\sin(2\pi x))$ is a covering map. For example $p^{-1}(U)=\{x\in \mathbb{R}:\cos (2\pi x)>0\}=\bigcup\limits_{n\in \mathbb{Z}}(n-\frac{1}{4},n+\frac{1}{4})$, so we see that $V_n=(n-\frac{1}{4},n+\frac{1}{4})$ are disjoint open sets. Because $\sin(2\pi x)$ is strictly monoton on $\bar{V_n}$ we get that $p|_{\bar V_n}:\bar V_n\to \bar U$ is bijective and also homeomorphic.
+        \item Conversely $p:\mathbb{R}^+\to \mathbb{S}^1$ with the same definition is \textbf{NOT} a covering map (despite being a surjective, continuous, local homeomorphism). This is due to $(1,0)$ not having a neighbourhood which is evenly covered by $p$ so $p:V_n\to U$ is a homeomorphism for all $n\neq 0$.
+    \end{itemize}
+\end{example}
+\begin{theorem}\label{3.5}
+    Let $p:E\to B$ and $p':E'\to B'$ be two covering maps. Then $p\times p':E\times E'\to B\times B'$ is again a covering map.
+\end{theorem}
+\begin{proof}
+    Let $b\in B,b'\in B'$ and choose $U,U'$ to be the, by $p$ and $p'$ evenly covered neighbourhoods of $b$ and $b'$ respectively. So we get $p^{-1}(U)=\bigcup\limits_\alpha V_\alpha$ and $p'^{-1}(U')=\bigcup\limits_\beta V'_\beta$. 
+    It follows that $(p\times p')^{-1}(U\times U')=(\bigcup\limits_{\alpha,\beta}V_\alpha\times V'_\beta)$ which shows that $p\times p'$ is indeed a covering map. 
+\end{proof}
+\begin{example}\label{3.6}
+    \begin{itemize}
+        \item $T=\mathbb{S}^1\times \mathbb{S}^1$ is the torus which has by the preciding theorem \ref{3.5} a covering map in $p\times p:\mathbb{R}\times \mathbb{R}\to \mathbb{S}^1\times \mathbb{S}^1$ given by $(s,t)\to (\cos(2\pi s),\sin(2\pi s),\cos(2\pi t),\sin(2\pi t))$.
+        \item Let $p\times p$ be as above and let $b_0=p(0)=(1,0)$. We also define $B_0:=(\mathbb{S}^1\times\{b_0\})\cup(\{b_0\}\times \mathbb{S}^1)$ and $E_0:=(p\times p)^{-1}(B_0)=(\mathbb{R}\times\mathbb{Z})\cup(\mathbb{Z}\times \mathbb{R})$. Then $p\times p:E_0\to B_0$ is a covering map.
+    \end{itemize}
+\end{example}
+\begin{definition}\label{3.7}
+    Let $p:E\to B$ and $f:X\to B$ be a continuous map with $E,B,X$ being topological spaces and $p$ being a covering map.
+    A \textbf{lifting} of $f$ is a map $\tilde f:X\to E$ s.t. $p\circ \tilde f=f$
+\end{definition}
+\begin{example}\label{3.8}
+    We choose $p:\mathbb{R}\to \mathbb{S}^1$ as before and $f:[0,1]\to \mathbb{S}^1$ given by $f(t)=(\cos(\pi t),\sin(\pi t))$. Then $f$ lifts to $\tilde f:[0,1]\to \mathbb{R}$, $t\to \frac{1}{2}t$.
+    If we look at $h:[0,1]\to \mathbb{S}^1$ given by $h(t)=(\cos(4\pi t),\sin(4\pi t))$ we see that it lifts to $\tilde h(s)=2s$.
+\end{example}
+\begin{lemma}\label{3.9}
+    Let $p:E\to B$ be again a covering map, $b_0\in B$ and $p(e_0)=b_0$.
+    Any path $f:[0,1]\to B$ beginning at $b_0$ has a unique lifting to a path $\tilde f$ beginning at $e_0$.
+\end{lemma}
+\begin{proof}
+    Let $B$ be covered by finitley many open sets $U$ which in turn are evenly covered by the map $p$ (possible because $B=f([0,1])$, $f$ is continuous, $[0,1]$ is compact and covered by the open sets $f^{-1}(U)$). Now we may choose a subdivision $0=s_0<s_1<...<s_n=1$ of $[0,1]$ such that $f([s_i,s_{i+1}])\subseteq U$.\\
+    Set $\tilde f(0)=e_0$. Suppose $\tilde f$ is defined for $0\leq s\leq s_i$. We define $\tilde f$ on $[s_i,s_{i+1}]$ as follows:\\
+    By construction $f([s_i,s_{i+1}])$ lies in some open $U$ which is evenly covered by $p$ with $p^{-1}(U)=\bigcup\limits_\alpha V_\alpha$ and $p:V_\alpha\to U$ is homeomorphic for all $\alpha$. We choose $\beta$ such that $\tilde f(s_i)\in V_\beta$ and set $\tilde f(s)=(p|_{V_\beta}^{-1}\circ f(s))$. Now it follows that $\tilde f$ is continuous and $p\circ \tilde f=f$ by definition.\\
+    Uniqueness: Let $\tilde f'$ be another lifting with $\tilde f'(0)=e_0$. Suppose $\tilde f(s)=\tilde f'(s)\quad \forall 0\leq s\leq s_i$ and define $V_\beta$ as before.
+    $\tilde f'([s_i,s_{i+1}])$ is connected, hence it must lie entirely in $V_\beta$. Thus for $s\in[s_i,s_{i+1}]$, $\tilde f'(s)$ equals to some point $y\in V_\beta$ such that $p(\tilde f'(s))=f(s)$ with $y\in p^{-1}(f(s))$. But there is only one such point, namely $\tilde f(s)\implies \tilde f'(s)=\tilde f(s)$.
+\end{proof}
+\begin{lemma}\label{3.10}
+    Let $p:E\to B$ be a covering map and $p(e_0)=b_0$. Let $F:[0,1]\times[0,1]\to B$ be a continuous map with $F(0,0)=b_0$.
+    Then there exists a unique lifting $\tilde F:[0,1]\times [0,1]\to E$ such that $\tilde F(0,0)=e_0$. If $F$ is a path homotopy, then so is $\tilde F$.
+\end{lemma}
+\begin{proof}
+    We only provied a sketch here because this proof is very similar to the proof of the preceeding lemma \ref{3.9}. By set lemma we get that $F$ lifts to $I\times \{0\}$ and $\{0\}\times I$.
+    Now we impose two different subdivisions $s_n$ and $t_m$ as before. If $F$ is a path homotopy, then $F(\{0\}\times I)=b_0$ and because $\tilde F$ is a lifting, it follows that $\tilde F(\{0\}\times I)\subseteq p^{-1}(b_0)$ which is discrete as we discussed.
+    Because $\{0\}\times I$ is connected, it follows that $\tilde F(\{0\}\times I)$ is connected, hence $\tilde F(\{0\}\times I)$ is a one-point set. The same holds for $\tilde F(I\times \{0\})$.
+\end{proof}
+\begin{theorem}\label{3.11}
+    Let $p:E\to B$ be a covering map with $p(e_0)=b_0$.
+    Let $f,g$ be two paths in $B$ from $b_0$ to $b_1$ and let $\tilde f,\tilde g$ be the liftings of $f,g$ starting at $e_0$.
+    If $f\simeq g$, then $\tilde f$ and $\tilde g$ end and start at the same point, and $\tilde f\simeq\tilde g$.
+\end{theorem}
+\begin{proof}
+    Let $F:I\times I\to B$ be the path homotopy between $f,g$ so $F(0,0)=b_0$. By lemma \ref{3.10} $\tilde F$ is a lifting of $F$ to $E$ with $\tilde F(0,0)=e_0$ and it is also a path homotopy.
+    We know therefore that $\tilde F(\{0\}\times I)=\{e_0\}$ and $\tilde F(\{0\}\times I)=\{e_1\}$.
+    $\tilde F|_{I\times \{0\}}$ is a path starting at $e_0$ and the lifting of $F|_{I\times \{0\}}$. By the uniqueness of liftings $\tilde F(s,0)=\tilde f(s)$.
+    The same argument gives $\tilde F(s,1)=\tilde g(s)$ which implies that $\tilde f(1)=\tilde g(1)=e_1$. Therefore $\tilde f\simeq_{\tilde F}\tilde g$.
+\end{proof}
+\begin{definition}\label{3.12}
+    Let $p:E\to B$ be a covering map with $p(e_0)=b_0$.
+    Choose $[f]\in \pi_1(B,b_0)$. Let $\tilde f$ be the lifting of $f$ such that $\tilde f(0)=e_0$.
+    $\phi:\pi_1(B,b_0)\to p^{-1}(b_0)=E_{b_0}$ defined by $\phi([f]):=\tilde f(1)$. This $\phi$ is well defined due to the theorem \ref{3.11}.
+\end{definition}
+\begin{theorem}\label{3.13}
+    In the same setup as in the definition \ref{3.12}:
+    If $E$ is path-connected then $\phi$ is surjective.\\
+    If $E$ is simply connected then $\phi$ is bijective.
+\end{theorem}
+\begin{proof}
+    First, let $E$ be path-connected and $e_1\in p^{-1}(b_0)$. $\tilde f$ is a path in $E$ from $e_0$ to $e_1$. $f:=p\circ \tilde f$ is a loop in $B$ based at $b_0$. Then $\phi([f])=\tilde f(1)=e_1\implies \phi$ is surjective.\\
+    Now let $E$ be simply connected and let $[f],[g]$ such that $\phi([f])=\phi([g])$. Then $\tilde f,\tilde g$ are liftings that start in $e_0$. It follows that $\tilde f(1)=\tilde g(1)$, hence $\tilde f\simeq_{\tilde F}\tilde g\implies f\simeq_{p\circ\tilde F}g$ 
+\end{proof}
+
+\subsection{Fundamental group of circles and applications}

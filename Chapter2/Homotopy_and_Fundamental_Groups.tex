@@ -26,7 +26,7 @@ A continuous map $f:I\to X$ is called a path in $X$.\\
 
 Assume there is a path homotopy $F:I\times I\to X$ such that $F(x,0)=h(x)$ and $F(x,1)=(1,0)$. W.l.o.g. we may assume $F:I\times I\to \mathbb{S}^1$: if $F'$ is a path homotopy, then $F:=\frac{x}{|x|}\circ F'$ is one too, because $\frac{x}{|x|}$ is continuous on $X$.
 
-From here on we use the covering map (which we will define later) $p:\mathbb{R}\to \mathbb{S}^1$, $p(t)=e^{2\pi i t}$. By a lemma which we will prove later, $F$ has a lift $\tilde F$, i.e. a continuous map $\tilde F:I\times I\to\mathbb{R}$ with $p\circ\tilde F=F$. We can normalize $\tilde F$ such that $\tilde F(0,0)=0$.
+From here on we use the covering map (which we will define later (\ref{3.2})) $p:\mathbb{R}\to \mathbb{S}^1$, $p(t)=e^{2\pi i t}$. By a lemma which we will prove later (\ref{3.10}), $F$ has a lift $\tilde F$, i.e. a continuous map $\tilde F:I\times I\to\mathbb{R}$ with $p\circ\tilde F=F$. We can normalize $\tilde F$ such that $\tilde F(0,0)=0$.
 
 Because $F(0,t)=F(1,t)=F(x,1)=(1,0)$ are all mapped to $1$ (we use $\mathbb{R}^2 \cong \mathbb{C}$ for convenience) and $p^{-1}(1)=\mathbb{Z}$, the maps $\tilde F(0,t)$, $\tilde F(1,t)$ and $\tilde F(x,1)$ are continuous with values in $\mathbb{Z}$, and $\mathbb{Z}$ is discrete. Hence each of them is constant. Since consecutive edges share a corner, the three constants agree, and we get
 $$\tilde F(0,0)=\tilde F(0,1)=\tilde F(1,1)=\tilde F(1,0)=0.$$
