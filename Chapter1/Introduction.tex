@@ -1,6 +1,6 @@
 \section{Introduction}
 \begin{definition}
-    A topology on a set $X$ is a collection $\tau$ of subsets of $X$ such that:
+    A topology on a set $X$\index{topology} is a collection $\tau$ of subsets of $X$ such that:
     \begin{enumerate}\label{1.1}
         \item $\emptyset,X \in \tau$.
         \item If $U_i \in \tau$ for all $i \in I$, then $\bigcup_{i \in I} U_i \in \tau$.
@@ -9,7 +9,7 @@
     We call the pair $(X,\tau)$ a topological space. The elements of $\tau$ are called open sets.
 \end{definition}
 \begin{definition}\label{1.2}
-    A \textbf{basis} for a topology on $X$ is a collection $\mathcal{B}$ of subsets of $X$ such that:
+    A \textbf{basis}\index{topological base} for a topology on $X$ is a collection $\mathcal{B}$ of subsets of $X$ such that:
     \begin{enumerate}
         \item $\forall x \in X$, $\exists B\in \mathcal{B}$ containing $x$.
         \item If $x \in B_1 \cap B_2$ for some $B_1,B_2 \in \mathcal{B}$, then there is a basis element $B_3 \in \mathcal{B}$ such that $x \in B_3 \subseteq B_1 \cap B_2$.
@@ -29,11 +29,11 @@
     \end{itemize}
 \end{example}
 \begin{definition}\label{1.5}
-    $U$ is a neighbourhood of $x$ if $\exists V$ open such that $x \in V \subseteq U$.
+    $U$ is a neighbourhood\index{neighbourhood} of $x$ if $\exists V$ open such that $x \in V \subseteq U$.
 \end{definition}
 \begin{definition}\label{1.6}
     Let $X,Y$ be topological spaces. \\
-    A map $f:X\to Y$ is continuous if $\forall U\subseteq Y$ open, $f^{-1}(U)$ is open in $X$.\\
+    A map $f:X\to Y$ is continuous\index{continuous function} if $\forall U\subseteq Y$ open, $f^{-1}(U)$ is open in $X$.\\
     If $f$ is a bijection and both $f$ and $f^{-1}$ are continuous, then $f$ is called a homeomorphism. In this case, we say that $X$ and $Y$ are homeomorphic or topologically equivalent ($X\simeq Y$).
 \end{definition}
 \begin{example}\label{1.7}

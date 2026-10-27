@@ -468,6 +468,7 @@ INPUT .\Chapter3\Covering_Spaces.tex
 INPUT .\Chapter3\Covering_Spaces.tex
 INPUT Chapter3\Covering_Spaces.tex
 INPUT D:\Latex\fonts\tfm\jknappen\ec\ecbx1440.tfm
+INPUT D:\Latex\fonts\tfm\jknappen\ec\ecbi1200.tfm
 OUTPUT Chapter4.aux
 OUTPUT Chapter5.aux
 OUTPUT Chapter6.aux
@@ -507,6 +508,8 @@ INPUT .\Chapter9.aux
 INPUT Chapter9.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1200.pk
+INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbi1200.pk
 INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
 INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk
 INPUT C:\Users\Aldous\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk

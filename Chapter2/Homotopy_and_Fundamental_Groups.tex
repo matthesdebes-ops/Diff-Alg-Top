@@ -1,10 +1,10 @@
 \section{Homotopy}
 \begin{definition}\label{2.1}
-    Let $X,Y$ be topological spaces (as always in this chapter) and $f,g:X\to Y$ be continuous maps. Then $f$ is called homotopic to $g$ if there exists a $F:X\times I\to Y$ continuous s.t. $F(x,0)=f(x)$ and $F(x,1)=g(x)$ for all $x\in X$. We write $f\simeq_F g$ and $F$ is called a homotopy between $f$ and $g$. If $f\simeq c$ where $c$ is a constant map, then $f$ is called null-homotopic.
+    Let $X,Y$ be topological spaces (as always in this chapter) and $f,g:X\to Y$ be continuous maps. Then $f$ is called \textbf{homotopic}\index{homotopic} to $g$ if there exists a $F:X\times I\to Y$ continuous s.t. $F(x,0)=f(x)$ and $F(x,1)=g(x)$ for all $x\in X$. We write $f\simeq_F g$ and $F$ is called a \textbf{homotopy}\index{homotopy} between $f$ and $g$. If $f\simeq c$ where $c$ is a constant map, then $f$ is called null-homotopic.
 \end{definition}
 \begin{definition}\label{2.2}
 A continuous map $f:I\to X$ is called a path in $X$.\\
-    Two paths $f,g:I\to X$ are called \textbf{path homotopic} if they have the same start and end points, i.e. $f(0)=g(0)$ and $f(1)=g(1)$, and there exists a continuous map $F:I\times I\to X$ s.t. $F(x,0)=f(x)$, $F(x,1)=g(x)$ for all $x\in I$, and $F(0,t)=f(0)=g(0)$, $F(1,t)=f(1)=g(1)$ for all $t\in I$. We write $f\simeq_F g$.
+    Two paths $f,g:I\to X$ are called \textbf{path homotopic}\index{path homotopic} if they have the same start and end points, i.e. $f(0)=g(0)$ and $f(1)=g(1)$, and there exists a continuous map $F:I\times I\to X$ s.t. $F(x,0)=f(x)$, $F(x,1)=g(x)$ for all $x\in I$, and $F(0,t)=f(0)=g(0)$, $F(1,t)=f(1)=g(1)$ for all $t\in I$. We write $f\simeq_F g$.
 \end{definition}
 \begin{remark}\label{2.3}
     This is an equivalence relation:
@@ -37,7 +37,7 @@ so the difference lies in $\mathbb{Z}$. Since the difference is continuous on th
     \end{itemize}
 \end{example}
 \begin{definition}\label{2.5}
-    Let $f$ be a path in $X$ from $x_0$ to $x_1$ and $g$ be a path in $X$ from $x_1$ to $x_2$. Then the concatenation of $f$ and $g$ is the path $f*g:I\to X$ defined by \[f*g(x)=\begin{cases}
+    Let $f$ be a path in $X$ from $x_0$ to $x_1$ and $g$ be a path in $X$ from $x_1$ to $x_2$. Then the \textbf{concatenation}\index{concatenation} of $f$ and $g$ is the path $f*g:I\to X$ defined by \[f*g(x)=\begin{cases}
         f(2x) & 0\leq x\leq \frac{1}{2}\\
         g(2x-1) & \frac{1}{2}\leq x\leq 1 
     \end{cases}\]
@@ -62,8 +62,8 @@ so the difference lies in $\mathbb{Z}$. Since the difference is continuous on th
     \end{enumerate}
 \end{proof}
 \begin{definition}\label{2.7}
-    A \textbf{loop} based at $x_0\in X$ is a path $f:I\to X$ with $f(0)=f(1)=x_0$.\\
-    $\pi_1(X,x_0)$ is the so called \textbf{fundamental group of $X$ relative to $x_0$}($=\{[f]:f\text{ is a loop based at }x_0\}$). This is a group. 
+    A \textbf{loop}\index{loop} based at $x_0\in X$ is a path $f:I\to X$ with $f(0)=f(1)=x_0$.\\
+    $\pi_1(X,x_0)$ is the so called \textbf{fundamental group of $X$ relative to $x_0$}\index{fundamental group}($=\{[f]:f\text{ is a loop based at }x_0\}$). This is a group. 
 \end{definition}
 \begin{example}
     $\pi_1(\mathbb{R}^n,x_0)=0$ for all $x_0\in \mathbb{R}^n$. Also, $\pi_1(X,x_0)=0$ for all $x_0\in X$ if $X\subseteq \mathbb{R}^n$ is convex. 
@@ -86,7 +86,7 @@ Question: Does $\pi_1(X,x_0)$ depend on the choice of $x_0$?
     Let $X$ be path connected. Then $\pi_1(X,x_0)\cong \pi_1(X,x_1)$ for all $x_0,x_1\in X$.
 \end{corollary} 
 \begin{definition}\label{2.11}
-    $X$ is called simply connected if it is path connected and $\pi_1(X,x_0)=0$ for some (and hence all) $x_0\in X$.
+    $X$ is called \textbf{simply connected}\index{simply connected} if it is path connected and $\pi_1(X,x_0)=0$ for some (and hence all) $x_0\in X$.
 \end{definition}
 \begin{theorem}\label{2.12}
     Let $h:(X,x_0)\to (Y,y_0)$ be a continuous map with $h(x_0)=y_0$. Then $h$ induces a homomorphism $h_*:\pi_1(X,x_0)\to \pi_1(Y,y_0)$ with $h_*([f])=[h\circ f]$ for all $[f]\in \pi_1(X,x_0)$.\\

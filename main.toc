@@ -4,3 +4,4 @@
 \contentsline {section}{\numberline {2}Homotopy}{5}{section.2}%
 \contentsline {section}{\numberline {3}Covering Spaces}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Fundamental group of circles and applications}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Fundamental groups of spheres and tori}{15}{subsection.3.2}%

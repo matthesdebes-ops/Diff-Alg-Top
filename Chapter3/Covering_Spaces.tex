@@ -4,7 +4,7 @@
     We say $\{V_\alpha\}_{\alpha\in A}$ is a partition of $p^{-1}$ into slices.
 \end{definition}
 \begin{definition}\label{3.2}
-    Let $p:E\to B$ be a continuous, surjective map. If every $b\in B$ has a neighbourhood $U$ that is evenly covered by $p$, then $p$ is called a \textbf{covering map}, $B$ is called the \textbf{base of the covering} and $E$ is the \textbf{covering Space of $B$}.\\
+    Let $p:E\to B$ be a continuous, surjective map. If every $b\in B$ has a neighbourhood $U$ that is evenly covered by $p$, then $p$ is called a \textbf{covering map}\index{covering map}, $B$ is called the \textbf{base of the covering} and $E$ is the \textbf{covering Space of $B$}.\\
     We call $p^{-1}(x)$ a fiber over $x$.
 \end{definition}
 \begin{remark}\label{3.3}
@@ -37,7 +37,7 @@
 \end{example}
 \begin{definition}\label{3.7}
     Let $p:E\to B$ and $f:X\to B$ be a continuous map with $E,B,X$ being topological spaces and $p$ being a covering map.
-    A \textbf{lifting} of $f$ is a map $\tilde f:X\to E$ s.t. $p\circ \tilde f=f$
+    A \textbf{lifting}\index{lifting} of $f$ is a map $\tilde f:X\to E$ s.t. $p\circ \tilde f=f$
 \end{definition}
 \begin{example}\label{3.8}
     We choose $p:\mathbb{R}\to \mathbb{S}^1$ as before and $f:[0,1]\to \mathbb{S}^1$ given by $f(t)=(\cos(\pi t),\sin(\pi t))$. Then $f$ lifts to $\tilde f:[0,1]\to \mathbb{R}$, $t\to \frac{1}{2}t$.
@@ -90,3 +90,99 @@
 \end{proof}
 
 \subsection{Fundamental group of circles and applications}
+\begin{theorem}\label{3.14}
+    $\pi_1(\mathbb{S}^1)\simeq\mathbb{Z}$
+\end{theorem}
+\begin{proof}
+    Let $b_0=(1,0),e_0=0$ and $p:\mathbb{R}\to\mathbb{S}^1$ be the standard covering.\\
+    We need to show that $\phi:\pi_1(\mathbb{S}^1,b_0)\to p^{-1}(b_0)=\mathbb{Z}$ (from definition \ref{3.12}) is a homomorphism.\\
+    For that, let $[f],[g]\in\pi_1(\mathbb{S}^1,b_0)$ and let $\tilde f,\tilde g$ be liftings starting at $0$ and define $n:=\tilde f(1),m:=\tilde g(1)$ ($n\in \mathbb{Z}$ because $p(\tilde f(1))=f(1)=b_0$ so $\tilde{f}(1)\in p^{-1}(b_0)=\mathbb{Z}$).
+    Now we define $\tilde g'(s):= n+\tilde g(s)$ which is a path in $\mathbb{R}$. We have that $\forall x\in\mathbb{R},n\in\mathbb{Z}: p(x+n)=p(x)\implies \tilde g'(s)$ is the lifting of $g$ starting at $n$.
+    It follows that $\tilde f*\tilde g'$ is well defined and a lifting of $f*g$ starting at $0$. Since $\tilde f*\tilde g'(1)=n+m$, we have $\phi([f]*[g])=n+m=\phi([f])+\phi([g])$.
+\end{proof}
+\begin{definition}\label{3.15}
+    Let $A\subseteq X$. A \textbf{retraction}\index{retraction} of $X$ onto $A$ is a continuous map $r:X\to A$ such that $r|_A=id_A$. $A$ is then called \textbf{retract} of $X$.
+\end{definition}
+\begin{example}\label{3.16}
+    $r:\mathbb{R}^2\setminus\{(0,0)\}\to \mathbb{S}^1$ with $r(x)=\frac{x}{\Vert x\Vert}$
+\end{example}
+\begin{definition}\label{3.17}
+    For any continuous map $\varphi:(X,x_0)\to (Y,y_0)$ the \textbf{induced homomorphism} (or induced homomorphism of fundamental groups) is $\varphi_*:\pi_1(X,x_0)\to\pi_1(Y,y_0)$ given by $\varphi_*([f])=[\varphi\circ f]$.
+\end{definition}
+\begin{lemma}\label{3.18}
+    If $r:X\to A$ is a retraction, then the homomorphism of fundamental groups induced by the inclusion $j:A\to X$ is injective.
+\end{lemma}
+\begin{proof}
+    We know $r\circ j=id_A\implies r_*\circ j_*=(r\circ j)_*=(id_A)_*=id$ with $j_*([f])=[j\circ f]$.\\
+    Now, because $j_*$ has a left inverse we get that it is also injective.
+\end{proof}
+\begin{theorem}\label{3.19}
+    There is no retraction $r:D^2\to\mathbb{S}^1$ with $D^2=\{x\in \mathbb{R}^2|\Vert x\Vert\leq 1\}$.
+\end{theorem}
+\begin{proof}
+    Assume $\mathbb{S}^1$ is a retract of $D^2$ and let $j:\mathbb{S}^1\to D^2$ be the inclusen.\\
+    Then $j_*:\pi_1(\mathbb{S}^1,x_0)\to\pi_1(D^2,x_0)$ is injective.\\
+    But this is a contradiction because $\pi_1(\mathbb{S}^1,x_0)=\mathbb{Z}$ and $\pi_1(D^2,x_0)=0$.
+\end{proof}
+\begin{lemma}\label{3.20}
+    Let $h:\mathbb{S}^1\to X$ be continuous. The following are equivalent:
+    \begin{enumerate}
+        \item $h$ is nullhomotopic
+        \item $h$ extends to a continuous map $\tilde h:D^2\to X$
+        \item $h_*=0$ ($h$ induces the trivial homomorphism on the fundamental groups)
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    $(i)\implies (ii)$\\
+    $(i)\implies\exists H:\mathbb{S}^1\times I\to X$ homotopy between $h$ and a constant path.\\
+    Now define $\pi:\mathbb{S}^1\times I\to D^2$ as $\pi(x,t)=(1-t)x$. This function is continuous, closed and surjective.\\
+    $\pi$ collapses $\mathbb{S}^1\times \{1\}$ to $(0,0)$ and is injective everywhere else.\\
+    We know that $H$ is constant on $\mathbb{S}^1\times 1\implies H\circ \pi^{-1}$ is well-defined, so this gives a continuous extension $\tilde h$ of $h$ to $D^2$.\\
+    $(ii)\implies (iii)$\\
+    Let $\tilde h$ be the continuous extension of $h$ given by $(ii)$ and let $j:\mathbb{S}^1\to D^2$ be the inclusion map.\\
+    $h=\tilde h\circ j\implies h_*=\tilde h_*\circ j_*$ and $j_*:\pi_1(\mathbb{S}^1,x_0)\to\pi_1(D^2,x_0)=0\implies j_*=0\implies h_*=0$.\\
+    $(iii)\implies (i)$\\
+    $\pi_1(\mathbb{S}^1,b_0)$ is generated by $[p|_I]$, $p_0=p|_I$ and we define $x_0:=h(b_0)$.\\
+    $(iii)$ gives $0=h_*[p_0]=[h\circ p_0]$, hence there is a homotopy $F$ in $X$ between $h\circ p_0$ and $e_{x_0}$ with $F(\{0\}\times I)=\{x_0\},F(\{1\}\times I)=\{x_0\}$.\\
+    It follows that $(s,t)\to F(p_0^{-1}(s),t)$ is well-defined on $\mathbb{S}^1\times I$ and defines a homotopy between $h$ and $e_{x_0}$.
+\end{proof}
+\begin{corollary}\label{3.21}
+    The inclusion $j:\mathbb{S}^1\to\mathbb{R}^2\setminus\{(0,0)\}$ is not nullhomotopic and the identity $i:\mathbb{S}^1\to\mathbb{S}^1$ is not nullhomotopic too.
+\end{corollary}
+\begin{proof}
+    \begin{itemize}
+        \item Let $r:\mathbb{R}^2\setminus\{(0,0)\}\to\mathbb{S}^1$ given by $x\to \frac{x}{\Vert x\Vert}$ be a retraction.\\
+        \item It follows that $j_*$ is injective hence non trivial so by lemma \ref{3.20} $j$ is not nullhomotopic.
+        \item Let $i$ be the identity on $\mathbb{S}^1\implies I_*\neq 0\implies i$ is not nullhomotopic.
+    \end{itemize}
+\end{proof}
+\begin{definition}\label{3.22}
+    A \textbf{vectorfield}\index{vectorfield} on $D^2$ is a pair $(x,V(x))$ with $x\in D^2$ and $V(x)\in \mathbb{R}^2$ where $V:D^2\to\mathbb{R}^2$ is continuous.\\
+    $V$ points directly inward at $x$ if $V(x)=\alpha x$ with $\alpha<0$ and directly outward if $\alpha>0$. 
+\end{definition}
+\begin{theorem}\label{3.23}
+    Given a \textbf{nonvanishing} vectorfield $V$ on $D^2$, there exists a point on $\mathbb{S}^1$ where $V$ points directly outward and one where $V$ points directly inward.
+\end{theorem}
+\begin{proof}
+    $V:D^2\to\mathbb{R}^2\setminus\{(0,0)\}$ is continuous.\\
+    Assume that $V(x)$ does not point directly inward $\forall x\in \mathbb{S}^1$.\\
+    We define $w:=V|_{\mathbb{S}^1}:\mathbb{S}^1\to\mathbb{R}^2\setminus\{(0,0)\}$ which is nullhomotopic (Lemma \ref{3.20} $(ii)$).\\
+    But $w$ is homotopic to the inclusion $j:\mathbb{S}^1\to\mathbb{R}^2\setminus\{(0,0)\}$ which we show by the following means.\\
+    So lets define $F(x,t)=tx+(1-t)w(x)$ which is continuous for $x\in \mathbb{S}^1$ and we have \\
+    $F(x,0)=w(x)\neq 0$, $F(x,1)=x\neq 0$
+    If $F(x,t)=0$ for some $t\in(0,1)$,\\
+    then $w(x)=\frac{-tx}{1-t}=-\frac{t}{1-t}x$ points directly inward. \\
+    Hence $F(x,t)\neq 0$ for $x\in\mathbb{S}^1,t\in I\implies F$ 
+    is a homotopy between $w$ and $j$ in $\mathbb{R}^2\setminus\{(0,0)\}\implies j$ is nullhomotopic $\lightning$\\
+    If we replace $V$ by $-V$ we get a point in $\mathbb{S}^1$, where $V$ points directly outward.
+\end{proof}
+\begin{theorem}[Brenwer fixed point theorem]\label{3.24}
+    If $f:D^2\to D^2$ is continuous, then it has at least one fixed point.
+\end{theorem}
+\begin{proof}
+    By contradiction, assume $\forall x\in D^2:f(x)\neq x$. Then $V(x):=f(x)-x$ is a non vanishing vectorfield on $D^2$.
+    $V$ cannot point directly outward at some $x\in \mathbb{S}^1$:\\
+    $V(x)=\alpha x$ with $\alpha>0\implies f(x)=x+\alpha x=(1+\alpha)x\notin D^2$$\lightning$
+\end{proof}
+
+\subsection{Fundamental groups of spheres and tori}
