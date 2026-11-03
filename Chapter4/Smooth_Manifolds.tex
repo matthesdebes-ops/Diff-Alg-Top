@@ -1,0 +1,129 @@
+\section{Smooth Manifolds}
+\begin{definition}\label{4.1}
+    Let $X\subseteq \mathbb{R}^k,Y\subseteq \mathbb{R}^l$ be arbitrary subsets. A map $f:X\to Y$ is called \textbf{smooth}\index{smooth}, if for each $x\in X$ 
+    there exists an open neighborhood $U\subseteq \mathbb{R}^k$ of $x$ and a smooth map $F:U\to \mathbb{R}^l$ such that $F|_{U\cap X}=f$.\\
+    $f$ is called a \textbf{diffeomorphism}\index{diffeomorphism}, if $f$ is a homeomorphism and both $f$ and $f^{-1}$ are smooth.\\  
+\end{definition}
+\begin{proposition}\label{4.2}
+    $f:X\to Y;g:Y\to Z$ smooth $\implies g\circ f:X\to Z$ smooth.\\
+\end{proposition}
+\begin{definition}\label{4.3}
+    $M\subseteq \mathbb{R}^k$ is called a \textbf{smooth $n$-dimensional manifold}\index{manifold}, if each $x\in M$ has an open neighborhood 
+    $W\subseteq \mathbb{R}^k$ such that $W\cap M$ is diffeomorphic to an open subset $U\subseteq \mathbb{R}^n$.\\
+    Any particular diffeomorphism $g:U\to W\cap M$ is called a \textbf{parametrization}\index{parametrization} of $W\cap M$. \\
+    By definition $M$ is a manifold of dimension $0$ if each $x\in M$ has an open neighborhood $W\subseteq \mathbb{R}^k$ such that $W\cap M=\{x\}$.  
+\end{definition}
+\begin{example}\label{4.4}
+    $\mathbb{S}^2=\{(x,y,z)|x^2+y^2+z^2=1\}$ is a smooth $2$-dimensional manifold.\\
+    We see that $(x,y)\to(x,y,\sqrt{1-x^2-y^2})$ for $x^2+y^2<1$ is a parametrization of the upper hemisphere ($\mathbb{S}^2\cap\{z>0\}$).\\
+    We can define similar parametrizations for $\{x>0\},\{y<0\},\{y>0\},\{z<0\}$ and $\{x<0\}$.\\ 
+\end{example}
+\begin{remark}\label{4.5}
+    Let $U\subseteq \mathbb{R}^k$ and $f:U\to \mathbb{R}^l$ be smooth.\\
+    $df_x:\mathbb{R}^k\to \mathbb{R}^l$ is a linear map, defined by $df_x(h)=\lim_{t\to 0}\frac{f(x+th)-f(x)}{t}$.\\ 
+    We remember:
+    \begin{itemize}
+        \item chain rule: $d(g\circ f)_x=dg_{f(x)}\cdot df_x$.
+        \item $dId_U=Id_{\mathbb{R}^k}$.
+        \item $L:\mathbb{R}^k\to \mathbb{R}^l$ linear $\implies dL_x=L$.
+    \end{itemize}
+    In particular if $f:U\subseteq \mathbb{R}^k\to V\subseteq \mathbb{R}^l$ is a diffeomorphism, then $k=l$ and $df_x$ is non-singular.\\
+    The other way around is also true: If $df_x$ is non-singular for all $x\in U$, then via the inverse function theorem $f$ maps any sufficiently small open set $U'$ around $x$ diffeomorüphically onto an open set $f(U')$.\\  
+    Now let $M\subseteq \mathbb{R}^k$ be a smooth $m$-dimensional manifold and $x\in M$.\\
+    Let $g:U\subseteq \mathbb{R}^m\to M\subseteq\mathbb{R}^k$ be a parametrization, and let $g(U)$ be a neighborhood of $x\in M$.\\
+    Then $dg_u:\mathbb{R}^m\to \mathbb{R}^k$ is well-defined $\forall u\in U$.\\
+    We define the \textbf{tangent space}\index{tangent space} of $M$ at $x$ as $T_xM:=dg_u(\mathbb{R}^m)$ such that $g(u)=x$.\\
+    $T_xM$ is well-defined, because if $h:V\subseteq \mathbb{R}^m\to M$ is another parametrization with $g(V)$ being a neighborhood of $x\in M$. Take some $v\in V$ such that $h(v)=x$.\\
+    Then $h^{-1}\circ g$ maps a neighbourhood $U_1$ of $u$ diffeomorphically onto a neighborhood $V_1$ of $v$.\\   
+    \begin{center}
+    \begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzcd}[column sep=small, row sep=large]
+    & \mathbb{R}^l & \\
+    U_1 \arrow[rr, "h^{-1}\circ g"'] \arrow[ur, "g"] & & V_1 \arrow[ul, "h"']
+    \end{tikzcd}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+    \centering
+    \begin{tikzcd}[column sep=small, row sep=large]
+    & \mathbb{R}^k & \\
+    \mathbb{R}^m \arrow[rr, "d(h^{-1}\circ g)_u"'] \arrow[ur, "dg_u"] & & \mathbb{R}^m \arrow[ul, "dh_v"']
+    \end{tikzcd}    
+    \end{minipage}
+    \end{center}
+    This implies that $Im(dg_u)=Im(dh_v)$.\\
+    $T_xM$ is an $m$-dimensional vector space ($rank(dg_u)=m$):
+    $g^{-1}:g(U)\to U$ is smooth, hence we may choose $x\in W$ open in $\mathbb{R}^k$ such that $F:W\to \mathbb{R}^m$ is smooth and $F|_{W\cap g(U)}=g^{-1}$.\\
+    \begin{center}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tikzcd}[column sep=small, row sep=large]
+& W \arrow[dr, "F"] & \\
+U \arrow[ur, "g"] \arrow[rr, "inclusion"'] & & \mathbb{R}^m
+\end{tikzcd}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tikzcd}[column sep=small, row sep=large]
+& \mathbb{R}^k \arrow[dr, "dF_x"] & \\
+\mathbb{R}^m \arrow[ur, "dg_u"] \arrow[rr, "\mathrm{id}"'] & & \mathbb{R}^m
+\end{tikzcd}
+\end{minipage}
+    \end{center}
+\end{remark}
+\begin{example}\label{4.6}
+    \begin{itemize}
+        \item Let $M=\{(x,y,z)\in\mathbb{R}^3|z=x^2+y^2\}$. Then
+        \[g:\mathbb{R}^2\to \mathbb{R}^3,\quad g(x,y)=(x,y,x^2+y^2)\]
+        is a parametrization of $M$.\\
+        We calculate $T_{(x,y,z)}M=IM(dg_{(x,y)})=span\{(1,0,2x),(0,1,2y)\}$.\\
+        \item Let $M=\mathbb{S}^2\subseteq \mathbb{R}^3$. Then
+        \[g(x,y)=(x,y,\sqrt{1-x^2-y^2})\]
+        is a parametrization of the upper hemisphere.\\
+        \item Let $M=\mathbb{T}^2\subseteq \mathbb{R}^3$ be the torus. We can parametrize $M$ by first parametrizing a circle in the $x-z$-plane ($c(t)=(R+r\cos t,0,r\sin t)$) and then rotating this circle around the $z$-axis.\\
+        This gives us the parametrization
+        \[g(s,t)=((R+r\cos t)\cos s,(R+r\cos t)\sin s,r\sin t)\]
+        We cover $M$ by using $3$ charts: $(0,2\pi)^2,(\frac{\pi}{2},\frac{5}{2}\pi)^2,(-\pi,\pi)^2$.\\
+        We calculate $T_{g(s,t)}M=Im(dg_{(s,t)})=span\{\begin{pmatrix}
+            -(R+r\cos t)\sin s\\(R+r\cos t)\cos s\\
+            0
+        \end{pmatrix},\begin{pmatrix}
+            -r\sin t\cos s\\-r\sin t\sin s\\r\cos t
+        \end{pmatrix}\}$.
+    \end{itemize}
+\end{example}
+\begin{definition}\label{4.7}
+    Now consider $f:M\to N$ smooth, where $M\subseteq \mathbb{R}^k$ and $N\subseteq \mathbb{R}^l$ are smooth manifolds.\\
+    We define $df_x:T_xM\to T_{f(x)}N$ as follows:\\
+    Take $F:W\to \mathbb{R}^l$ smooth such that $F|_{W\cap M}=f$ where $W$ is an open neighborhood of $x$ in $\mathbb{R}^k$.\\
+    We set $df_x(v):=dF_x(v)$.\\
+    Now we need to show that $df_x(v)\in T_{f(x)}N$ and that $df_x$ is independent of the choice of $F$.\\  
+    Let us choose a parametrization $g:U\to M\cap W\subseteq \mathbb{R}^k$ and $h:V\to N\subseteq\mathbb{R}^l$.\\
+    Then $dF_x(T_xM)=dF_x(dg_u)\subseteq dh_v=T_{f(x)}N$.\\
+    Also $dF_x=dh_v\circ d(h^{-1}\circ f\circ g)_u\circ dg_u^{-1}$, hence $df_x$ is independent of the choice of $F$.\\
+    \begin{itemize}
+        \item $df_x$ is linear.
+        \item the chain rule holds.
+        \item $dId_M=Id_{T_xM}$.
+    \end{itemize}
+    In particular if $f:M\to N$ is a diffeomorphism, then $df_x:T_xM\to T_{f(x)}N$ is an isomorphism so $dim M=dim N$.\\
+    \begin{center}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tikzcd}[column sep=large, row sep=large]
+U \arrow[r, "g"] \arrow[d, "h^{-1}\circ f\circ g"'] & W \arrow[d, "F"] \\
+V \arrow[r, "h"'] & \mathbb{R}^l
+\end{tikzcd}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tikzcd}[column sep=large, row sep=large]
+\mathbb{R}^m \arrow[r, "dg_u"] \arrow[d, "d(h^{-1}\circ f\circ g)_u"'] & \mathbb{R}^k \arrow[d, "dF_x"] \\
+\mathbb{R}^m \arrow[r, "dh_v"'] & \mathbb{R}^l
+\end{tikzcd}
+\end{minipage}
+\end{center}
+\end{definition}
