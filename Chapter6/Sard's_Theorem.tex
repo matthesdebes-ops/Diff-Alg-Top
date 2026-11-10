@@ -11,30 +11,46 @@
 \begin{corollary}\label{6.3}
     Let $f: M\to N$ be a smooth map between smooth manifolds. Then the set of regular values of $f$ is dense in $N$.
 \end{corollary}
-\begin{proof}[Zard's Theorem]
-    We proof the corollary by induction on $m$.\\
-    If $m=0$, then $U\subseteq M$ is either empty or a single point, and the result is trivial.\\
-    Now reminde yourself that $C$ is the set of critical points of $f$.\\
-    We define $C_1:=\{x\in U|df_x=0\}$ and in similar fashion $C_i$ as the set of all $x\in U$ such that all partial derivatives of $f$ of order $\leq i$ vanish at $x$.\\
-    It follows that $C\supseteq C_1\supseteq C_2\supseteq \ldots \supseteq C_i\supseteq C_{i+1}\supseteq \ldots$.\\
+\begin{proof}[Sard's Theorem]
+    We proof the theorem by induction on $m$.\\
+    If $m=0$, then $U\subseteq \mathbb{R}^m$ is either empty or a single point, and the result is trivial.\\
+    Now remind yourself that $C$ is the set of critical points of $f$.\\
+    We define $C_1:=\{x\in U|df_x=0\}$ and in similar fashion $C_k$ as the set of all $x\in U$ such that all partial derivatives of $f$ of order $\leq k$ vanish at $x$.\\
+    It follows that $C\supseteq C_1\supseteq C_2\supseteq \ldots \supseteq C_k\supseteq C_{k+1}\supseteq \ldots$.\\
    
     Step 1: $f(C\setminus C_1)$ has measure zero.\\
         We may assume that $n\geq 2$ because for $n=1$, $C=C_1$.\\
-        Now we take $\tilde x\in C\setminus C_1$. Our goal is to find an open neighbourhood $V\subseteq \mathbb{R}^n$ of $\tilde x$ such that $f(C\cap V)$ has measure zero.\\
+        Now we take $\tilde x\in C\setminus C_1$. Our goal is to find an open neighbourhood $V\subseteq \mathbb{R}^m$ of $\tilde x$ such that $f(C\cap V)$ has measure zero.\\
         Since $\tilde x\notin C_1$, there exists a partial derivative of $f$, say $\frac{\partial f_1}{\partial x_1}$, that does not vanish at $\tilde x$.\\
-        Now define $h:U\to \mathbb{R}^n$ by $h(x)=(f_1(x),x_2,\ldots,x_m)$.\\
+        Now define $h:U\to \mathbb{R}^m$ by $h(x)=(f_1(x),x_2,\ldots,x_m)$.\\
         This is a local diffeomorphism at $\tilde x$ because at $\tilde x$ $dh_{\tilde x}$ is non-singular, hence it maps a neighbourhood $V$ of $\tilde x$ diffeomorphically onto an open set $V'\subseteq \mathbb{R}^m$.\\
-        We also define $g:V'\to \mathbb{R}^n$ by $g(y)=f\circ h^{-1}$.\\
+        We also define $g:V'\to \mathbb{R}^n$ by $g=f\circ h^{-1}$.\\
         Let $C'$ be the set of critical points of $g$. Then $C'=h(C\cap V)\implies g(C')=(g\circ h)(V\cap C)=f(V\cap C)$.\\
-        For each $(t,x_2,...,x_m)\in V'$, we have $g(t,x_2,...,x_m)\in \{t\}\times \mathbb{R}^{n-1}$, hence $g$ maps a hyperplane to a hyperplane.\\
+        For each $(t,x_2,...,x_m)\in V'$, we have $g(t,x_2,...,x_m)\in \{t\}\times \mathbb{R}^{n-1}$ (let $y=(t,x_2,...,x_m)$ and $h^{-1}(y)=x\implies h(x)=y\implies f_1(x)=t$ so $\pi_1\circ g(y)=\pi_1(f(h^{-1}(y)))=\pi_1(f(x))=f_1(x)=t$), hence $g$ maps a hyperplane to a hyperplane.\\
         Now we define $g^t:(\{t\}\times \mathbb{R}^{m-1})\cap V'\to \{t\}\times \mathbb{R}^{n-1}$ the restriction of $g$.
         The Jacobian matrix of $g^t$ is $(\frac{\partial g_i}{\partial x_j})=\begin{cases}
             1 & 0\\
-            * & \frac{\partial g_i}{\partial x_j}
+            * & \frac{\partial g_i^t}{\partial x_j}
         \end{cases}$ 
         Hence a point in $\{t\}\times \mathbb{R}^{n-1}$ is critical for $g$ iff it is critical for $g^t$.\\
         By induction the set of critical values of $g^t$ has measure zero in $\{t\}\times \mathbb{R}^{n-1}$.\\
-        With Fubini's theorem, it follows that $g(C')=f(V\cap C)$ has measure zero in $\mathbb{R}^n$.\\
-    Step 2: $f(C_i\setminus C_{i+1})$ has measure zero.\\      
+        With Fubini's theorem and because of second countability of $\mathbb{R}^m$, it follows that $g(C')=f(V\cap C)$ has measure zero in $\mathbb{R}^n$.\\
+    Step 2: $f(C_k\setminus C_{k+1})$ has measure zero.\\
+    Let $\tilde{x}\in C_k\setminus C_{k+1}$. Then there exists a partial derivative $\frac{\partial^{k+1}f_r}{\partial {x_{s_1}},...,\partial {x_{s_{k+1}}}}$ that does not vanish at $\tilde{x}$.\\
+    We define $w(x):=\frac{\partial^{k}f_r}{\partial {x_{s_2}},...,\partial {x_{s_{k+1}}}}$. Then $\tilde x\in C_k\implies w(\tilde x)=0$ but $\tilde x\notin C_{k+1}\implies \frac{\partial w}{\partial x_{s_1}}(\tilde x)\neq 0$.\\
+    We set $s_1=1$. Now we define $h:U\to\mathbb{R}^m$ by $h(x):=(w(x),x_2,...,x_m)$ which maps a neighbourhood $V$ of $\tilde x$ diffeomorphically onto $V'\subseteq \mathbb{R}^m$ open.\\
+    One can see that $h(C_k\cap V)\subseteq \{0\}\times \mathbb{R}^{m-1}$.\\
+    We define $g:=f\circ h^{-1}:V'\to \mathbb{R}^n$ and the restriction of $g$ to a hyperplane namely $g':(\{0\}\times\mathbb{R}^{m-1})\cap V'\to\mathbb{R}^n$.\\
+    By induction, the set of critical values of $g'$ has measure zero which implies that $(g'\circ h)(C_k\cap V)=f(C_k\cap V)$ has measure zero which in turn proves that $f(C_k\setminus C_{k+1})$ has measure zero.\\
     
+    Step 3: $f(C_k)$ has measure zero for $k$ large enough.\\
+    Let $I=I^m\subseteq U$ be the cube with edgelength $\delta$.\\
+    We will show that if $k+1>\frac{m}{n}$, then $f(C_k\cap I)$ has measure zero (This holds for each Cube so it holds for all of $U$).\\
+    By Taylor, we get that $f(x+h)=f(x)+R(x,h)$ with $\forall x\in C_k\cap I,x+h\in I\quad \Vert R(x,h)\Vert\leq c\Vert h\Vert ^{k+1}$.\\
+    The constant $c$ only depends on $f$ and $I$.\\
+    Now we subdivide $I$ into $r^m$ cubes with edgelength $\frac{\delta}{r}$.
+    Let $I_1$ be a cube of the subdivision containing $x\in C_k$. Then any other point in $I_1$ is of the form $x+h$ with $\Vert h\Vert\leq \sqrt{m}\frac{\delta}{r}$.\\
+    It follows that $f(I_1)$ lies in a cube of edgelength $\frac{a}{r^{k+1}}$ centered at $f(x)$ with $a=2c(\sqrt{m}\delta)^{k+1}$ not depending on $r$.
+    Now $f(C_k\cap I)$ is contained in the union of $r^m$ cubes having a total volume of $V\leq r^m (\frac{a}{r^{k+1}})^n=a^nr^{m-n(k+1)}\stackrel{r\to\infty}{\to} 0$\\
+    So if $n(k+1)>m\implies f(C_k\cap I)$ has measure zero.
 \end{proof}
