@@ -9,3 +9,4 @@
 \contentsline {section}{\numberline {5}Regular Values}{22}{section.5}%
 \contentsline {section}{\numberline {6}Sard's Theorem}{24}{section.6}%
 \contentsline {section}{\numberline {7}Manifolds with boundary}{26}{section.7}%
+\contentsline {section}{\numberline {8}Degree Modulo 2 of a Mapping}{30}{section.8}%

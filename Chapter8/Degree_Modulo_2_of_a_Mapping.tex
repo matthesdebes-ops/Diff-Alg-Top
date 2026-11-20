@@ -1,0 +1,23 @@
+\section{Degree Modulo 2 of a Mapping}
+Consider $f:\mathbb{S}^n\to\mathbb{S}^n$ smooth and let $y\in \mathbb{S}^n$ be a regular value of $f$. We will show that $\# f^{-1}(y) \mod 2$ does not depend on $y$. 
+\begin{definition}
+    Let $f,g: X\to Y$ ($X,Y$ smooth manifolds, $g,f$ smooth) are called \textbf{smoothly homotopic}\index{smoothly homotopic} (write $f\simeq g$) if $\exists F:X\times[0,1]\to Y$ smooth and $F(x,0)=f(x), F(x,1)=g(x)quad \forall x\in X$.\\
+    Then $F$ is called a \textbf{smooth homotopy} between $f$ and $g$. This creates an equivalence relation:\\
+    For transitivity, we can't just use two smooth homotopies as in the case of curves because this would maybe give us an only continuous homotopy.\\
+    To smoothen out the endpieces, we use $\varphi:[0,1]\to[0,1]\in C^\infty$ with \\
+    $\varphi(t)=\begin{cases}
+        0 & 0\leq t\leq \frac{1}{3}\\
+        1 & \frac{2}{3}\leq t\leq 1
+    \end{cases}$. \\
+    Now suppose $F'$ is a homotopy between $f,g$.\\
+    Then $F(x,t):=F'(x,\varphi(t))$ is also a smooth homotopy between $f,g$ but with the benefit that \\
+    $F(x,t)=\begin{cases}
+        f(x) & 0\leq t \leq \frac{1}{3}\\
+        g(x) & \frac{2}{3}\leq t\leq 1
+    \end{cases}$.\\
+    Now if $f\simeq_{F'} g$ and $f\simeq_{G'}g$, then $f\simeq_{H} g$ with \\
+    $H(x,t):=\begin{cases}
+        F(x,2t) & 0\leq t\leq\frac{1}{2}\\
+        G(x,2t-1) \frac{1}{2}\leq t\leq 1
+    \end{cases}$.
+\end{definition}
