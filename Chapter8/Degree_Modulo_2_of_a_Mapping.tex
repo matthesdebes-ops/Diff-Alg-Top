@@ -1,6 +1,6 @@
 \section{Degree Modulo 2 of a Mapping}
 Consider $f:\mathbb{S}^n\to\mathbb{S}^n$ smooth and let $y\in \mathbb{S}^n$ be a regular value of $f$. We will show that $\# f^{-1}(y) \mod 2$ does not depend on $y$. 
-\begin{definition}
+\begin{definition}\label{8.1}
     Let $f,g: X\to Y$ ($X,Y$ smooth manifolds, $g,f$ smooth) are called \textbf{smoothly homotopic}\index{smoothly homotopic} (write $f\simeq g$) if $\exists F:X\times[0,1]\to Y$ smooth and $F(x,0)=f(x), F(x,1)=g(x)quad \forall x\in X$.\\
     Then $F$ is called a \textbf{smooth homotopy} between $f$ and $g$. This creates an equivalence relation:\\
     For transitivity, we can't just use two smooth homotopies as in the case of curves because this would maybe give us an only continuous homotopy.\\
@@ -21,3 +21,54 @@ Consider $f:\mathbb{S}^n\to\mathbb{S}^n$ smooth and let $y\in \mathbb{S}^n$ be a
         G(x,2t-1) \frac{1}{2}\leq t\leq 1
     \end{cases}$.
 \end{definition}
+\begin{definition}\label{8.2}
+    Let $f,g:X\to Y$ be diffeomorphisms. We call $f$ \textbf{smoothly isotopic}\index{smoothly isotopic} to $g$ if there exists a smooth homotopy $F:X\times[0,1]\to Y$ between $f,g$ such that $F(\cdot,t):X\to Y$ is a diffeomorphism for all $t\in[0,1]$.
+\end{definition}
+\begin{lemma}[Homotopy Lemma]\label{8.3}
+    Let $f,g:M\to N$ be smoothly homotopic maps, dim$M=$dim$N$, and $M$ is a compact manifold without boundary.\\
+    If $y\in N$ is a regular value for $f$ and $g$, then $\#f^{-1}(y)=\#g^{-1}(y) mod 2$.
+\end{lemma}
+\begin{proof}
+    Let $F:M\times[0,1]\to N$ be a smooth homotopy between $f$ and $g$. If $y\in N$ is a regular value for $F$, then $F^{-1}(y)$ is a compact $1$-manifold with $\partial F^{-1}(y)=F^{-1}(y)\cap\partial(M\times[0,1])=f^{-1}(y)\times\{0\}\cup g^{-1}(y)\times\{1\}$.\\
+    Because $\partial F^{-1}(y)$ has an even number of points (not a short proof, see Milnor "Topology from the Differentiable Viewpoint") it follows that $\#f^{-1}+\#g^{-1}(y)\in 2\mathbb{Z}\implies \#f^{-1}(y)=\#g^{-1}(y) mod 2$.\\
+    Now assume $y$ is not a regular value of $F$. We know $\#f^{-1}(y)$ and $\#g^{-1}(y)$ are constant on the set of regular values, so there are neighbourhoods $V_1,V_2$ of $y$ in $N$ consisting of regular values of $f$ and $g$ s.t. $\# f^{-1}(y')=\#^{-1}(y)$ on $V_1$ and the same for $g$ on $V_2$. Now choose $z\in V_1\cap V_2$ regular value of $F$ (Sard).\\
+    This implies that $\#f^{-1}(y)=\#f^{-1}(z)=\#g^{-1}(z)=\#g^{-1}(y) mod 2$.
+\end{proof}
+\begin{lemma}[homogeneity Lemma]\label{8.4}
+    Let $N$ be a smooth connected manifold and let $y,z$ be interior points of $N$. Then there is a diffeomorphism $h:N\to N$ such that $h$ is smoothly isotopic to $id_N$ and $h(y)=z$.
+\end{lemma}
+\begin{proof}
+    Step $1$: Construct a smooth isotopy $\mathbb{R}^n\to\mathbb{R}^n$ such that:
+    \begin{itemize}
+        \item all points outside $\mathbb{B}^n$ are fixed
+        \item the origin slides to any given point in the open unit Ball
+    \end{itemize}
+    To that end we define\\
+     $\varphi:\mathbb{R}^n\to\mathbb{R}$ smooth with $\begin{cases}
+        \varphi(x)>0 & \Vert x\Vert<1\\
+        \varphi(x)=0 & \Vert x\Vert \geq 1
+    \end{cases}$\\
+    which can for example be realised by $\varphi(x)=\lambda(1-\Vert x\Vert^2)$ with \\
+    $\lambda(s)=\begin{cases}
+        e^{-\frac{1}{s}} & s>0\\
+        0 & s \leq 0
+    \end{cases}$\\
+    Now we fix $c\in\mathbb{S}^{n-1}$ with $\frac{dx_i}{dt}=c_i\varphi(x_1,...,x_n)\quad i\in\{1,...,n\}$.\\
+    For any $\tilde x\in\mathbb{R}^n$, this system has a unique solution $x=(t,\tilde x)$ with $x(0,\tilde x)=\tilde x$ (unique by Picard-Lindelöf).\\
+    $x(t,\tilde x)$ exists for all $t\in\mathbb{R}$ so we can define $F_t(\tilde x):=x(t,\tilde x)$.\\
+    This $F_t(\tilde x)$ depends smoothly on $t$ and $\tilde x$ and has the properties:
+    \begin{itemize}
+        \item $F_0(\tilde x)=\tilde x\quad \forall \tilde x\implies F_0=id_{\mathbb{R}^n}$
+        \item $F_{s+t}(\tilde x)=F_s\circ F_t(\tilde x)$ (This is true for autonomes systems: The RHS of the ODE does not depend on $t$ and $x(t+s,\tilde x)$ and $x(t,x(s,\tilde x))$ are two solutions of the ODE that agree on $t=0$ so by Picard-Lindelöf they are the same).\\
+    
+    \end{itemize}
+    Hence $\forall t$, $F_t$ is a diffeomorphism from $\mathbb{R}^n\to\mathbb{R}^n$ (because $F_t^{-1}=F_{-t}$) which is smoothly isotopic to $id_{\mathbb{R}^n}$ and fixes points outside of $\mathbb{B}^n$.\\
+    Also $F_t$ maps $0$ to a given point $z\in\mathbb{B}^n$ for some $t$.\\
+
+    Step $2$: Two points $y,z\in N$ are called \textbf{isotopic}, if there exists $h$ which is smooth and isotopic to $id_N$ with $h(y)=z$.\\
+    Is is an equivalenz relation.\\
+    If $y\in N$ is an interior point, then it has a neighbourhood diffeomorphic to $\mathbb{R}^n$.\\
+    Hence if $z$ is sufficiently close to $y$, then $y$ and $z$ are isotopic by step $1$.\\
+    This implies that each isotopyclass of points is an open set.\\
+    This in turn implies that the interior of $N$ is partitiend into disjoint open sets and since $N$ is connected there can only exist $1$ equivalenzclass.
+\end{proof}
