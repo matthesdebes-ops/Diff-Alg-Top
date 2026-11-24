@@ -1,0 +1,19 @@
+\section{Oriented Manifolds}
+\begin{definition}\label{9.1}
+    An \textbf{orientation}\index{orientation} on a finite dimensional reel vector space is an equivalenz class of ordered bases:\\
+    $(b_1,...,b_m)$ determines the same orientation as $(b_1',...,b_m')$ iff $b_j'=\sum\limits_i a_{ij}b_i$ det$(a_{ij})>0$ and opposite orientation if det$(a_{ij})<0$.\\
+    This means that every positive dimensional reel vector space has $2$ possible orientations.\\
+    The standard orientation on $\mathbb{R}^n$ is $(e_1,...,e_n)$.\\
+    For zero demnsional vector space, orientation is defined as a symbol $+1$ or $-1$.
+\end{definition}
+
+\begin{definition}\label{9.2}
+    An \textbf{oriented smooth manifold} consists of a smooth manifold $M$ together with a choice of orientation for each $T_xM$.\\
+    If dim$M\geq 1$, we require that the orientation on $T_xM$ to fit together as follows:\\
+    $\forall x\in M,\exists U\subseteq M$ neighbourhood of $x$ and a diffeomorphism $h$ mapping $U$ to an open subset in $\mathbb{R}^m$ or $\mathbb{H}^m$ which is orientation preserving.\\
+    ($\forall x\in U, dh_x$ carries orientation from $T_xM$ to the standard orientation on $\mathbb{R}^m$)\\
+    ($h:U\to V, h':U'\to V'$ such that det$(d(h'\circ h^{-1}))>0$)
+\end{definition}
+\begin{remark}\label{9.3}
+    If $M$ is connected and orientable, then $M$ has exactly two orientations.
+\end{remark}

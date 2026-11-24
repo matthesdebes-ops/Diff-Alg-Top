@@ -63,12 +63,55 @@ Consider $f:\mathbb{S}^n\to\mathbb{S}^n$ smooth and let $y\in \mathbb{S}^n$ be a
     
     \end{itemize}
     Hence $\forall t$, $F_t$ is a diffeomorphism from $\mathbb{R}^n\to\mathbb{R}^n$ (because $F_t^{-1}=F_{-t}$) which is smoothly isotopic to $id_{\mathbb{R}^n}$ and fixes points outside of $\mathbb{B}^n$.\\
-    Also $F_t$ maps $0$ to a given point $z\in\mathbb{B}^n$ for some $t$.\\
+    Also $F_t$ maps $0$ to a given point $z\in\mathbb{B}^n$ for some $t$ by changing $c$.\\
 
     Step $2$: Two points $y,z\in N$ are called \textbf{isotopic}, if there exists $h$ which is smooth and isotopic to $id_N$ with $h(y)=z$.\\
-    Is is an equivalenz relation.\\
+    This is an equivalenz relation.\\
     If $y\in N$ is an interior point, then it has a neighbourhood diffeomorphic to $\mathbb{R}^n$.\\
     Hence if $z$ is sufficiently close to $y$, then $y$ and $z$ are isotopic by step $1$.\\
     This implies that each isotopyclass of points is an open set.\\
     This in turn implies that the interior of $N$ is partitiend into disjoint open sets and since $N$ is connected there can only exist $1$ equivalenzclass.
+\end{proof}
+\begin{theorem}\label{8.5}
+    Let $M$ be a compact manifold without boundary and let $N$ be a connected manifold (dim$M=$dim$N$).\\
+    Let $f:M\to N$ be smooth. If $y$ and $z$ are regular values of $f$, then $\#f^{-1}(y)=\#f^{-1}(z) mod 2$.\\
+    This residueclass is called the \textbf{$mod 2$ degree of $f$} ($d_2f$).\\
+    It only depends on the smooth homotopyclass of $f$.
+\end{theorem}
+\begin{proof}
+    By the homogeneity lemma \ref{8.4} $\exists h:N\to N$ diffeomorphism with $h(y)=z$ and $h$ being isotopic to $id_N$.\\
+    It follows that $z$ is a regular value of $h\circ f$. We know $h\circ f\simeq f$ and by the homotopy lemma it follows that $\#(h\circ f)^{-1}(z)=\#f^{-1}(z) mod 2$.\\
+    But $\#(h\circ f)^{-1}(z)=\#f^{-1}\circ h^{-1}(z)=\#f^{-1}(y)\implies \#f^{-1}(z)=\#f^{-1}(y) mod 2$.\\
+    Now lets assume that $f\simeq g$. By Sard we get that there exists $y\in N$ which is a regular value of $f$ and $g$ and so $d_2f=\#f^{-1}(y)=\#g^{-1}(y)=d_2g mod 2$.
+\end{proof}
+\begin{example}\label{8.6}
+    \begin{itemize}
+        \item constant map: $M\to M$ has zero $mod 2$ degree
+        \item $d_2(Id_M)=1$
+    \end{itemize}
+    Hence $id_M$ and a constant map are not smoothly homotopic if $M$ is compact without boundary.
+    \begin{itemize}
+        \item Let $f:M\to N$ smooth. If $d_2f\neq 0$ then $f$ is surjective.
+        \item If $M=\partial X$ for $X$ compact manifold, and if $f:M\to N$ emmits a smooth extension to $X$, then $d_2f=0$.
+    \end{itemize}
+\end{example}
+\begin{remark}[Application: Winding number $mod 2$]\label{8.7}
+    Consider $M$ compact smooth manifold without boundary and dim$M=n-1$.\\
+    Let $f:M\to\mathbb{R}^n$ be a smooth function and $z\in\mathbb{R}^n\setminus f(M)$.\\
+    We define $u_z:M\to\mathbb{S}^{n-1}$ as $u_z(x)=\frac{f(x)-z}{\Vert f(x)-z\Vert}$.\\
+    Then we can say that $W_2(f,z):=d_2u_z$ is the winding number of $f$ around $z$.
+\end{remark}
+\begin{lemma}\label{8.8}
+    Let $X$ be a compact smooth manifold with boundary $\partial X$ and let $f:M=\partial X\to \mathbb{R}^n$ be a smooth function.\\
+    Let $F:X\to\mathbb{R}^n$ be a smooth extension of $f$ to $X$.\\
+    If $z\notin f(M)$ is a regular value of $F$, then $W(f,z)=\#F^{-1}(z) mod 2$.
+\end{lemma}
+\begin{proof}
+    If $F^{-1}(z)=\emptyset$, then $u_z:M\to\mathbb{S}^{n-1}$ with $u_z(x)=\frac{f(x)-z}{\Vert f(x)-z\Vert}$ extends to $X\implies$\\ 
+    $d_2u_z=0 mod 2$.\\
+    Now $F^{-1}(z)=\{y_1,...,y_m\}$.\\
+    Let $X':=X\setminus\bigcup_{j=1}^m int(B_j)$ be the manifold with boundary $\partial X'=\partial X\cup(\bigcup_{j=1}^m\partial B_j)$ where $B_j$ is a small ball around $y_j$ (disjoint from the other balls).\\
+    Then $F^{-1}(z)\cap X'$ and $(F|_{X'})^{-1}(z)$ are equal to $\emptyset$. Define $f_j:=F|_{\partial B_j}:\partial B_j\to\mathbb{R}$.\\
+    It follows $0=W_2(F|_{\partial X'},z)=W_2(f_1,z)+...+W_2(f_m,z)+W_2(f,z)$.\\
+    This implies $W_2(f,z)=W_2(f_1,z),...,W_2(f_m,z)=m=\#F^{-1}(z) mod 2$.
 \end{proof}
