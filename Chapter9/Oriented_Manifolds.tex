@@ -17,3 +17,50 @@
 \begin{remark}\label{9.3}
     If $M$ is connected and orientable, then $M$ has exactly two orientations.
 \end{remark}
+\begin{definition}\label{9.4}
+    If $M$ is a manifold with boundary $\partial M$ and $x\in\partial M$, then $v\in T_xM$ has one of the following types.\\
+    \begin{itemize}
+        \item $v\in T_x\partial M$
+        \item $v$ "outward vector"
+        \item $v$ "inward vector"
+    \end{itemize}
+\begin{tikzpicture}[>=Stealth,line cap=round]
+  \def\R{2}      % sphere radius
+  \def\e{0.6}    % apparent vertical radius of the equator
+  \coordinate (P) at (0,-0.6);   % the point x on the front of the equator
+
+  % sphere outline
+  \draw[gray] (0,0) circle (\R);
+
+  % M: upper hemisphere (shaded)
+  \fill[blue!12] (-\R,0) arc[start angle=180,end angle=0,radius=\R]
+                 arc[start angle=0,end angle=-180,x radius=\R,y radius=\e] -- cycle;
+
+  % boundary = equator (back half dashed, front half solid)
+  \draw[dashed,gray] (\R,0) arc[start angle=0,end angle=180,x radius=\R,y radius=\e];
+  \draw[very thick]  (\R,0) arc[start angle=0,end angle=-180,x radius=\R,y radius=\e];
+
+  \node at (0,1.2) {$M$};
+  \node[left] at (-\R,0) {$\partial M$};
+
+  % tangent plane T_xM: green half = inward side, orange half = outward side
+  \fill[green!50!black,opacity=0.18]  (-1.4,-0.6) rectangle (1.4,0.6);
+  \fill[orange!80!black,opacity=0.18] (-1.4,-1.8) rectangle (1.4,-0.6);
+  \draw[gray] (-1.4,-1.8) rectangle (1.4,0.6);
+  \node[gray,font=\small,anchor=south west] at (-1.4,-1.8) {$T_xM$};
+
+  % vectors
+  \draw[->,very thick,red!70!black]    (P) -- (1.2,-0.6);
+  \draw[->,very thick,green!50!black]  (P) -- (0,0.4);
+  \draw[->,very thick,orange!80!black] (P) -- (0,-1.6);
+  \fill (P) circle (1.8pt) node[below left,xshift=2pt] {$x$};
+
+  % labels to the right, outside the sphere, with dotted leaders
+  \draw[dotted,gray] (1.2,-0.6) -- (2.3,-0.6);
+  \draw[dotted,gray] (0,0.4)    -- (2.3,0.4);
+  \draw[dotted,gray] (0,-1.6)   -- (2.3,-1.6);
+  \node[anchor=west,red!70!black]    at (2.3,-0.6) {$e_y\in T_x\partial M$};
+  \node[anchor=west,green!50!black]  at (2.3,0.4)  {inward ($e_z$)};
+  \node[anchor=west,orange!80!black] at (2.3,-1.6) {outward ($-e_z$)};
+\end{tikzpicture}
+\end{definition}
