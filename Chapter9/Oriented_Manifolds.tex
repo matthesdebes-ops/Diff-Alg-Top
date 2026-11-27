@@ -63,4 +63,33 @@
   \node[anchor=west,green!50!black]  at (2.3,0.4)  {inward ($e_z$)};
   \node[anchor=west,orange!80!black] at (2.3,-1.6) {outward ($-e_z$)};
 \end{tikzpicture}
+
+    Orientation on $M$ determines orientation on $\partial M$ as follows:\\
+    Let $x\in\partial M$ and choose a positively oriented basis $(v_1,...,v_n)$ of $T_xM$ such that $v_1$ is an outward vector and $v_2,...v_n\in T_x\partial M$.\\
+    The orientation of $T_x\partial M$ is determined by $(v_2,...,v_n)$.\\
+    If dim$M=1$, then each boundary point is assigned $+1$ or $-1$ according wether a positively oriented vector at $x$ points outwards or inwards.
 \end{definition}
+\begin{definition}\label{9.5}
+    Let $M,N$ be smooth, oriented, $m$-dimensional manifolds without boundary and $f:M\to N$ be a smooth function.\\
+    If $M$ is compact and $N$ is connected, then the \textbf{degree of $f$}\index{degree} at a regular value $y$ is defined as follows:\\
+    Let $x\in M$ be a regular point to $y$ ($x\inf^{-1}(y)$), so $df_x:T_xM\to T_yN$ is an isomorphism.\\
+    We define sign$(df_x)$ as $+1$ iff $df_x$ is orientation preserving and $-1$ iff it is orientation reversing.\\
+    Now $\deg(f;y):=\sum\limits_{x\inf^{-1}(y)}$sign$(df_x)$.\\
+    This is defined on dense open subsets of $N$ and therefore $y\to\deg(f;y)$ is locally constant.
+\end{definition}
+\begin{theorem}[A]\label{9.6}
+    $\deg(f;y)$ does not depend on the choice of the regular value $y$. It will be called the degree of $f$.
+\end{theorem}
+\begin{theorem}[B]\label{9.7}
+    If $f\simeq g$, then $\deg f=\deg g$
+\end{theorem}
+\begin{lemma}\label{9.8}
+    Let $X$ be a compact, oriented manifold with boundary $\partial X$ with dim$X=$dim$N+1$.\\
+    If $f:\partial X\to N$ smooth extends to a smooth map $F:X\to N$ then $\deg(f;y)=0$ for $y$ regular value of $f$.
+\end{lemma}
+\begin{proof}[lemma \ref{9.8}]
+    First, assume that $y$ is also a regular value for $F$.\\
+    Then $F^{-1}(y)$ is a compact $1$-manifold (so a finite union of circles and arcs).\\
+    We know $\partial F^{-1}(y)=F^{-1}(y)\cap\partial X=f^{-1}(y)$.\\
+    Let $A\subseteq F^{-1}(y)$ be an arc with $\partial A=\{a,b\}$.
+\end{proof}
